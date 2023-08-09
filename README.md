@@ -9,43 +9,49 @@ This repository contains all of the assignments of the CMPT 120 section 200 cour
 ## Week 1-2: Introduction to Python
 
 - Setting up a Python development environment.
-- Understanding Python and it's use cases.
+- Understanding Python and it's role in the industry.
 - Basic syntax, variables, and data types.
 - Writing and executing simple Python programs.
 
-## Week 3-4: Control Structures & Functions
+## Week 3-4: Control Structures
 
-- Conditional statements (if, elif, else, try, except).
+- Conditional statements (if, elif, else).
 - Loops (for, while) and iteration.
 - Control flow and logical operators.
+
+## Week 5-6 Functions
+
 - Defining functions and their importance.
 - Function parameters, arguments, and return values.
+- Practice with creating and using functions effectively.
 
-## Week 5: Unit Testing Fundamentals
+## Week 7: Unit Testing Fundamentals
 
 - Importance of unit testing in software development.
 - Introduction to third-party testing libraries.
 - Writing and running basic test cases.
 - Introduction to test-driven development (TDD).
 
-## Week 6: Modules and Libraries
+## Week 8: Error Handling and Debugging
 
-- Modular programming and creating Python modules.
-- Introduction to module and external library imports.
-- Introduction to library management with pip.
+- Identifying and handling errors using try-except blocks
+- Debugging techniques and best practices.
 
-## Week 7: File Handling and Logging
-
-- Reading and writing files in Python.
-- Introduction to log files.
-
-## Week 8-9: Data Structures
+## Week 9-10: Data Structures
 
 - Lists, sets, tuples, and dictionaries.
 - Operations on data structures.
 - List comprehensions and iteration techniques.
 
-## Week 11-12: Object-Oriented Programming (OOP)
+## Week 11-12: File Handling and Modules
+
+- Reading and writing files in Python.
+- Introduction to log files.
+- Modular programming and creating Python modules.
+- Introduction to module and external library imports.
+- Introduction to library management with pip.
+
+## Week 13-14: Object-Oriented Programming (OOP)
 
 - Introduction to OOP concepts.
 - Creating classes and objects using Python.
