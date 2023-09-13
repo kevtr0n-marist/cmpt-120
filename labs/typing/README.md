@@ -76,7 +76,7 @@ Please create the following variables and print out the values afterwards:
 8. Create a variable called `str_to_float` and assign it the value of `float(text)`.
 9. Create a variable called `float_to_str` and assign it the value of `str(my_float)`
 
-### Step 4 - Erroneous Type Casing
+### Step 4 - Erroneous Type Casting
 
 I want you to demonstrate for yourself the consequences of invoking the `float` function on a non-numerical string value.
 
