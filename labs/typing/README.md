@@ -108,19 +108,6 @@ some text
 123.456
 123.456
 41.2
-1
-41.2
-False
-some text
-<class 'str'>
-<class 'float'>
-<class 'bool'>
-<class 'str'>
-1.0
-41
-123.456
-123.456
-41.2
 Traceback (most recent call last):
   File "/home/kevtr0n/Repositories/marist/2023/fall/cmpt-120/labs/typing/typing.py", line 29, in <module>
     error_var = float("Hello")
