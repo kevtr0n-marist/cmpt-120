@@ -4,7 +4,7 @@ Control structures are an essential part of programming that allow you to specif
 
 ## Conditional Operators
 
-The operators below  are often used to check how two numbers stack up against one another. These operators also work with strings and other data types but for now we will just be using them
+The operators below  are often used to check how two numbers stack up against one another. These operators also work with strings and other data types but for now we will just be using them with numbers.
 
 | Operator | Mathematics | Description              |
 | -------- | ----------- | -------------------------|
