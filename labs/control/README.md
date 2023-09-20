@@ -1,8 +1,10 @@
 # Lab 3 - Control Structures
 
-TODO
+Control structures are an essential part of programming that allow you to specify the flow of execution in your code. In Python, there are several types of control structures: sequential, selection, repetition, and error handling. In this lab we will focus on the first three only. Before we can do that, we must learn some things about __conditional operators__, __logical operators__, and the Python __keywords__ related to the topic. Do not write any code until you have read up until the first exercise.
 
 ## Conditional Operators
+
+The operators below  are often used to check how two numbers stack up against one another. These operators also work with strings and other data types but for now we will just be using them
 
 | Operator | Mathematics | Description              |
 | -------- | ----------- | -------------------------|
@@ -16,12 +18,14 @@ TODO
 __Conditional Operator Examples__:
 
 ```py
-print(1 < 2)   # 1 less than 2?               True
-print(1 <= 2)  # 1 less than/equal to 2?      True
-print(1 == 2)  # 1 equal to 2?                False
-print(1 >= 2)  # 1 greater than/equal to 2?   False
-print(1 > 2)   # 1 greater than 2?            False
-print(1 != 2)  # 1 not equal to 2?            False
+print(1 < 2)          # 1 less than 2?               True
+print(1 <= 2)         # 1 less than/equal to 2?      True
+print(1 == 2)         # 1 equal to 2?                False
+print(1 >= 2)         # 1 greater than/equal to 2?   False
+print(1 > 2)          # 1 greater than 2?            False
+print(1 != 2)         # 1 not equal to 2?            False
+print("yes" == "yes") # True
+print("yes" != "yes") # False
 ```
 
 
