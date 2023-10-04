@@ -1,1 +1,7 @@
-venv
+venv/
+
+# Python related cache folders
+__pycache__
+
+# pytest related cache folders.
+.pytest_cache
