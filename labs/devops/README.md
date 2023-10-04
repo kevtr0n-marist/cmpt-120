@@ -111,6 +111,45 @@ Do not worry if you do not understand what is happening above. I will explain it
 
 If you did everything above correctly you should be able to see your code in https://github.com/USERNAME/cmpt-120 (be sure to replace USERNAME with your actual username).
 
-### Updating your GitHub Repository
+## Updating your GitHub Repository
 
-Next, lets push our first updates to our remote GitHub repository. If you update your code on your computer, that doesn't automatically update it in the cloud. In order to do that lets
+Next, lets push our first updates to our remote GitHub repository. If you update your code on your computer, that doesn't automatically update it in the cloud. In order to do that lets add some code.
+
+### Unit Test
+
+Create a new folder in your `labs` folder and call it `devops`. Create a new python file in the `devops` folder and call it `test_devops.py`. Copy the code in the [test_devops.py](https://github.com/kevtr0n-marist/cmpt-120/blob/main/labs/devops/test_devops.py) file on my GitHub and paste it inside your newly create `test_devops.py` file.
+
+This file contains a series of functions that act as __unit tests__. I want you to look over the file and study the techniques used in the file. In order to execute these tests, run the following commands:
+
+```sh
+# from the cmpt-120 folder
+pytest -rxSs labs/devops/test_devops.py
+```
+
+You should see 100% passing tests and 1 skipped test.
+
+### Performing the Update
+
+Next, we need to run a series of `git` commands to upload our new `test_devops.py` file to our remote repository. Please `cd` into your `cmpt-120` folder and execute the following commands:
+
+```sh
+# Here we are staging the newly created file in our next commit.
+git add labs/devops/test_devops.py
+
+# Here we are commiting our staged content in a new commit snapshot.
+git commit -m "our first update"
+
+# Here we are actually transmitting our local commit to our remote.
+git push origin main
+```
+
+## Submission
+
+Visit your repository on github by visiting https://github.com/USERNAME/cmpt-120 (replace USERNAME with your actual username). Navigate through the folders to find your newly created `test_devops.py` file and take a screenshot like below that showcases the following things:
+
+- Your Github username and repository name must be visible.
+- Your `test_devops.py` file must be visible and in the proper folder.
+
+![Unit Test Evidence](/static/images/evidence.png)
+
+Once you have taken the screenshot, submit it on Brightspace for credit.
