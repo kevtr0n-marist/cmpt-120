@@ -5,13 +5,34 @@ from event import InventoryAddEvent, InventoryRemoveEvent
 from event_handler import EventHandler
 from event_listener import EventListener
 
-class Student:
+
+class CourseAddEvent(InventoryAddEvent):
+    '''
+    A custom event to be sent when a student is registered to a class.
+    '''
+    
+    def __init__(self, added, credits):
+        super().__init__(added)
+        self.event_data["credits"] = credits
+
+class CourseRemoveEvent(InventoryRemoveEvent):
+    '''
+    A custom event to be sent when a student is unregistered from a class.
+    '''
+
+    def __init__(self, removed, credits):
+        super().__init__(removed)
+        self.event_data["credits"] = credits
+
+
+class Student(EventListener):
 
     def __init__(self, first_name, last_name):
         self.uuid = str(uuid.uuid4())
         self.first_name = first_name
         self.last_name = last_name
         self.email = f"{first_name.lower()}.{last_name.lower()}@marist.edu"
+        self.credits = 0
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Student):
@@ -23,6 +44,15 @@ class Student:
     
     def __str__(self) -> str:
         return json.dumps(dict(self), indent=2, sort_keys=False, ensure_ascii=False)
+    
+    def handle_event(self, event):
+        '''
+        The student's 'credits' property is updated via events.
+        '''
+        if isinstance(event, CourseAddEvent):
+            self.credits += event.event_data["credits"]
+        elif isinstance(event, CourseRemoveEvent):
+            self.credits -= event.event_data["credits"]
 
 
 class Teacher(EventListener):
@@ -47,31 +77,46 @@ class Teacher(EventListener):
 
 class Course(EventHandler):
     
-    def __init__(self, course_id, teacher=None):
+    def __init__(self, course_id, credits, teacher=None):
         super().__init__()
         self.course_id = course_id
+        self.credits = credits
         if isinstance(teacher, Teacher):
             self.teacher = teacher
             self.add_listener(teacher)
         self.students = []
     
     def add_student(self, student):
+        # ensure 'student' is a Student object.
         if not isinstance(student, Student):
             raise TypeError("'student' must be a Student.")
+        # ensure 'student' isn't already registered.
         if student in self.students:
             raise ValueError(f"Student with email '{student.email}' already registered to course {self.course_id}.")
+        # add student to course list.
         self.students.append(student)
-        event = InventoryAddEvent(student.__dict__)
+        # add student as listener.
+        self.listeners.append(student)
+        # create course add event.
+        event = CourseAddEvent(student.__dict__, self.credits)
+        # notify everyone who is interested.
         self.notify_listeners(event)
 
     def remove_student(self, student):
+        # ensure 'student' is a Student object.
         if not isinstance(student, Student):
             raise TypeError("'student' must be a Student.")
+        # ensure 'student' is registered.
         if student not in self.students:
             raise ValueError(f"Student with email '{student.email}' is not registered to course {self.course_id}.")
+        # remove student from class
         self.students.remove(student)
-        event = InventoryRemoveEvent(student.__dict__)
+        # create course remove event.
+        event = CourseRemoveEvent(student.__dict__, self.credits)
+        # notify everyone who is interested.
         self.notify_listeners(event)
+        # remove the student as a listener after event is sent.
+        self.remove_listener(student)
 
 
 def main():
@@ -79,7 +124,7 @@ def main():
     teacher = Teacher("Kevin", "Hayden")
 
     # create course for teacher to teach
-    course = Course("CMPT120", teacher)
+    course = Course("CMPT120", 4, teacher)
 
     # create student to add to course
     student = Student("Alice", "Smith")
