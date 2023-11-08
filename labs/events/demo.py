@@ -81,6 +81,7 @@ def main():
     # create course for teacher to teach
     course = Course("CMPT120", teacher)
 
+    # create student to add to course
     student = Student("Alice", "Smith")
 
     # register the student
